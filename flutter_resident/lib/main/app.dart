@@ -7,8 +7,13 @@ import './../ui/helpers/helpers.dart';
 import './../ui/pages/pages.dart';
 
 import './components/components.dart';
+import './env_enum.dart';
 
 class App extends StatelessWidget {
+  final EnvEnum env;
+
+  App({required this.env});
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
@@ -25,7 +30,7 @@ class App extends StatelessWidget {
       getPages: [
         GetPage(
           name: SplashPage.routeName,
-          page: makeSplashPage,
+          page: () => makeSplashPage(env: env),
           transition: Transition.fade,
         ),
         GetPage(
