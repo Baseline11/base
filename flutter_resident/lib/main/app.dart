@@ -22,22 +22,46 @@ class App extends StatelessWidget {
 
     AppConfig.setOrientation(portraitMode: true);
 
-    return GetMaterialApp(
-      title: 'Resident',
-      debugShowCheckedModeBanner: false,
-      theme: makeAppTheme(),
-      initialRoute: SplashPage.routeName,
-      getPages: [
-        GetPage(
-          name: SplashPage.routeName,
-          page: () => makeSplashPage(env: env),
-          transition: Transition.fade,
-        ),
-        GetPage(
-          name: SignUpPage.routeName,
-          page: makeSignUpPage,
-        ),
-      ],
+    return _wrapWithBanner(
+      GetMaterialApp(
+        title: 'Resident',
+        debugShowCheckedModeBanner: false,
+        theme: makeAppTheme(),
+        initialRoute: SplashPage.routeName,
+        getPages: [
+          GetPage(
+            name: SplashPage.routeName,
+            page: () => makeSplashPage(env: env),
+            transition: Transition.fade,
+          ),
+          GetPage(
+            name: SignUpPage.routeName,
+            page: makeSignUpPage,
+          ),
+        ],
+      ),
     );
+  }
+
+  /// Adds banner to the [child] widget.
+  Widget _wrapWithBanner(Widget child) {
+    return env != EnvEnum.Prod
+        ? Directionality(
+            textDirection: TextDirection.ltr,
+            child: Banner(
+              child: child,
+              location: BannerLocation.topEnd,
+              message: env.shortDescription,
+              color: Colors.yellow,
+              textStyle: TextStyle(
+                fontSize: 14,
+                letterSpacing: 1.0,
+                color: Colors.black,
+                fontWeight: FontWeight.w700,
+              ),
+              textDirection: TextDirection.ltr,
+            ),
+          )
+        : child;
   }
 }
