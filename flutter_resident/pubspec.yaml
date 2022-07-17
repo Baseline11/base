@@ -57,3 +57,10 @@ flutter_native_splash:
 
 # Command to run the project
 # $ flutter run --target lib/main/dev/main_dev.dart --flavor dev
+
+# FlutterFire command
+# flutterfire config 
+# --project=resident-development 
+# --out=lib/main/dev/firebase_options_dev.dart 
+# --ios-bundle-id=com.baseline.resident.dev
+# --android-app-id=com.baseline.resident.dev
