@@ -64,7 +64,7 @@ class _IosSignUpPageState extends State<IosSignUpPage>
                     child: RegisterSlider(),
                   ),
                   Container(
-                    padding: const EdgeInsets.all(16),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -83,7 +83,7 @@ class _IosSignUpPageState extends State<IosSignUpPage>
                         ),
                         EmailInput(),
                         Padding(
-                          padding: EdgeInsets.symmetric(vertical: 32),
+                          padding: EdgeInsets.symmetric(vertical: 16),
                           child: SignUpButton(
                             buttonWidth: totalWidth,
                           ),

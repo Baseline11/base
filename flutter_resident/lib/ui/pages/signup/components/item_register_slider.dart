@@ -1,8 +1,5 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_resident/ui/components/components.dart';
 import 'package:flutter_resident/ui/helpers/helpers.dart';
-import 'package:flutter_svg/svg.dart';
 
 class ItemRegisterSlider extends StatelessWidget {
   final double height;

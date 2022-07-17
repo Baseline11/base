@@ -9,7 +9,7 @@ class Headline1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 10, bottom: 20),
+      padding: EdgeInsets.only(top: 8, bottom: 8),
       child: Text(
         text,
         textAlign: TextAlign.center,
