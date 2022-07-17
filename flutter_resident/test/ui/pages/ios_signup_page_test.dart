@@ -33,7 +33,6 @@ void main() {
     'Should call validate with correct values',
     (WidgetTester tester) async {
       await loadPage(tester);
-      await tester.pump();
 
       final username = faker.internet.userName();
 
@@ -106,13 +105,8 @@ void main() {
 
       presenter.emitFirstNameValid();
       await tester.pump();
-      expect(
-        find.descendant(
-          of: find.bySemanticsLabel(R.strings.firstName),
-          matching: find.byType(Text),
-        ),
-        findsNWidgets(2),
-      );
+      expect(find.text(UIError.invalidField.description), findsNothing);
+      expect(find.text(UIError.requiredField.description), findsNothing);
     },
   );
 
@@ -131,13 +125,8 @@ void main() {
 
       presenter.emitLastNameValid();
       await tester.pump();
-      expect(
-        find.descendant(
-          of: find.bySemanticsLabel(R.strings.lastName),
-          matching: find.byType(Text),
-        ),
-        findsNWidgets(2),
-      );
+      expect(find.text(UIError.invalidField.description), findsNothing);
+      expect(find.text(UIError.requiredField.description), findsNothing);
     },
   );
 
@@ -154,18 +143,10 @@ void main() {
       await tester.pump();
       expect(find.text(UIError.requiredField.description), findsOneWidget);
 
-      // TODO: Check if there are no email errors
-      /*
       presenter.emitEmailValid();
       await tester.pump();
-      expect(
-        find.descendant(
-          of: find.bySemanticsLabel(R.strings.email),
-          matching: find.byType(Text),
-        ),
-        findsNWidgets(2),
-      );
-      */
+      expect(find.text(UIError.invalidField.description), findsNothing);
+      expect(find.text(UIError.requiredField.description), findsNothing);
     },
   );
 
