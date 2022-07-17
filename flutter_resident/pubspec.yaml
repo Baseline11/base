@@ -62,3 +62,6 @@ flutter_icons:
 # 3) flutter pub run flutter_native_splash:create
 flutter_native_splash:
   color: "#007AFF"
+
+# Command to run the project
+# $ flutter run --target lib/main/dev/main_dev.dart --flavor dev
