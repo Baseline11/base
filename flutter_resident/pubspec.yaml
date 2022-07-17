@@ -57,7 +57,16 @@ flutter_native_splash:
   color: "#007AFF"
 
 # Command to run the project
-# $ flutter run --target lib/main/dev/main_dev.dart --flavor dev
+# $ flutter run -t lib/main/dev/main_dev.dart --flavor dev
+
+# Generate appbundle (Android)
+# $ flutter build appbundle -t lib/main/dev/main_dev.dart --flavor dev
+
+# Generate apk (Android)
+# $ flutter build apk -t lib/main/dev/main_dev.dart --flavor dev
+
+# Generate ipa (iOS)
+# $ flutter build ipa -t lib/main/dev/main_dev.dart --flavor dev
 
 # FlutterFire command
 # flutterfire config 
