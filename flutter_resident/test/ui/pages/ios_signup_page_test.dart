@@ -33,25 +33,35 @@ void main() {
     'Should call validate with correct values',
     (WidgetTester tester) async {
       await loadPage(tester);
+      await tester.pump();
 
       final username = faker.internet.userName();
-      await tester.enterText(
-          find.widgetWithText(TextFormField, R.strings.username), username);
+
+      final usernameTextFormField =
+          find.widgetWithText(TextFormField, R.strings.username).first;
+
+      await tester.enterText(usernameTextFormField, username);
       verify(() => presenter.validateUsername(username));
 
+      final firstNameTextFormField =
+          find.widgetWithText(TextFormField, R.strings.firstName).first;
+
       final firstName = faker.person.firstName();
-      await tester.enterText(
-          find.bySemanticsLabel(R.strings.firstName), firstName);
+      await tester.enterText(firstNameTextFormField, firstName);
       verify(() => presenter.validateFirstName(firstName));
 
+      final lastNameTextFormField =
+          find.widgetWithText(TextFormField, R.strings.lastName).first;
+
       final lastName = faker.person.lastName();
-      await tester.enterText(
-          find.bySemanticsLabel(R.strings.lastName), lastName);
+      await tester.enterText(lastNameTextFormField, lastName);
       verify(() => presenter.validateLastName(lastName));
 
+      final emailTextFormField =
+          find.widgetWithText(TextFormField, R.strings.email).first;
+
       final email = faker.internet.email();
-      await tester.enterText(
-          find.widgetWithText(TextFormField, R.strings.email), email);
+      await tester.enterText(emailTextFormField, email);
       verify(() => presenter.validateEmail(email));
     },
   );
