@@ -21,7 +21,7 @@ class _IosSplashPageState extends State<IosSplashPage> with NavigationManager {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       handleNavigation(stream: widget.presenter.navigateToStream);
 
       widget.presenter.checkAccount();

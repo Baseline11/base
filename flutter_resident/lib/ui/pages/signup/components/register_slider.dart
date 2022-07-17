@@ -6,13 +6,13 @@ class RegisterSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double totalHeight = MediaQuery.of(context).size.height;
-    final double cardHeight = totalHeight * 0.38;
+    final double cardHeight = totalHeight * 0.4;
 
     return CarouselSlider(
       options: CarouselOptions(
         height: cardHeight,
         enlargeCenterPage: true,
-        viewportFraction: 0.75,
+        viewportFraction: 0.65,
       ),
       items: [
         ItemRegisterSlider(

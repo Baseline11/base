@@ -43,6 +43,7 @@ flutter:
   assets:
     - lib/ui/assets/
     - lib/ui/assets/images/
+    - lib/ui/assets/images/register/
     - lib/ui/assets/icons/
 
 # Run command to generate launch icons:

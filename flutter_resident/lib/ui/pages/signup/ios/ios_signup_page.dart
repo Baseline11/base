@@ -23,7 +23,7 @@ class _IosSignUpPageState extends State<IosSignUpPage>
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       handleLoading(
         context: context,
         stream: widget.presenter.isLoadingStream,
@@ -55,37 +55,43 @@ class _IosSignUpPageState extends State<IosSignUpPage>
           child: SingleChildScrollView(
             child: ListenableProvider(
               create: (_) => widget.presenter,
-              child: Container(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8),
-                      child: RegisterSlider(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8),
+                    child: RegisterSlider(),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Headline1(
+                          text: R.strings.signUp.page1Title,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: 8),
+                          child: UsernameInput(),
+                        ),
+                        FirstNameInput(),
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: 8),
+                          child: LastNameInput(),
+                        ),
+                        EmailInput(),
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: 32),
+                          child: SignUpButton(
+                            buttonWidth: totalWidth,
+                          ),
+                        ),
+                      ],
                     ),
-                    Headline1(
-                      text: R.strings.signUp.page1Title,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8),
-                      child: UsernameInput(),
-                    ),
-                    FirstNameInput(),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8),
-                      child: LastNameInput(),
-                    ),
-                    EmailInput(),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 32),
-                      child: SignUpButton(
-                        buttonWidth: totalWidth,
-                      ),
-                    )
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),
