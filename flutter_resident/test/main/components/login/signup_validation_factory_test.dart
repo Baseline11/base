@@ -10,18 +10,14 @@ void main() {
     expect(
       validations,
       [
-        RequiredFieldValidation('name'),
-        MinLengthValidation(
-          field: 'name',
-          size: 3,
-        ),
+        RequiredFieldValidation('username'),
+        MinLengthValidation(field: 'username', size: 3),
+        RequiredFieldValidation('first_name'),
+        MinLengthValidation(field: 'first_name', size: 3),
+        RequiredFieldValidation('last_name'),
+        MinLengthValidation(field: 'last_name', size: 3),
         RequiredFieldValidation('email'),
         EmailValidation('email'),
-        RequiredFieldValidation('password'),
-        MinLengthValidation(
-          field: 'password',
-          size: 3,
-        ),
       ],
     );
   });
