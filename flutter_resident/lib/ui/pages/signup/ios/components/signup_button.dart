@@ -18,7 +18,11 @@ class SignUpButton extends StatelessWidget {
       stream: presenter.isFormValidStream,
       builder: (context, snapshot) {
         return PrimaryButton(
-          onPressed: snapshot.data == true ? presenter.signUp : null,
+          onPressed: snapshot.data == true
+              ? () {
+                  // presenter.signUp();
+                }
+              : null,
           buttonText: R.strings.signUp.page1ButtonText,
           overlayColor: colorBrandPrimaryDarkest,
           textColor:
